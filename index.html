@@ -55,19 +55,19 @@
             }
         }
 
-        /* Hide big heart */
-        #bigHeart {
-            display: none;
-        }
-
-        /* Hide title */
+        /* Ẩn title */
         #title {
             display: none;
         }
 
-        /* Show result immediately */
+        /* Ẩn trái tim to */
+        #bigHeart {
+            display: none;
+        }
+
+        /* Ẩn lời chúc + ảnh lúc đầu */
         #resultBox {
-            display: block;
+            display: none;
             position: absolute;
             top: 55%;
             left: 50%;
@@ -95,13 +95,9 @@
 
 <body>
 
-    <!-- Hidden title -->
-    <div id="title">Hãy nhấn 5 lần vào trái tim của tôi đang đập</div>
-
-    <!-- Hidden big heart -->
+    <div id="title">Hãy nhấn 5 lần để mở bất ngờ</div>
     <div id="bigHeart"></div>
 
-    <!-- Result box -->
     <div id="resultBox">
         <p>
             <em>
@@ -123,7 +119,7 @@
     </div>
 
     <script>
-        // Create floating hearts
+        // Tạo hearts bay
         const colors = ["#ff4b4b", "#ff66c4", "#ffa500", "#00e5ff", "#39ff14", "#ff1493", "#9400ff"];
 
         for (let i = 0; i < 70; i++) {
@@ -139,6 +135,15 @@
 
             document.body.appendChild(h);
         }
+
+        // Click 5 lần mới hiện
+        let count = 0;
+        document.body.addEventListener("click", () => {
+            count++;
+            if (count === 5) {
+                document.getElementById("resultBox").style.display = "block";
+            }
+        });
     </script>
 
 </body>
