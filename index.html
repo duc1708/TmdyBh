@@ -50,6 +50,7 @@
             0% {
                 transform: translateY(100vh) rotate(45deg);
             }
+
             100% {
                 transform: translateY(-10vh) rotate(45deg);
             }
@@ -91,6 +92,7 @@
             background: transparent;
             padding: 20px;
             z-index: 4;
+            width: 100%;
         }
 
         #resultBox p {
@@ -104,6 +106,25 @@
             width: 120px;
             margin: 0 20px;
             border-radius: 10px;
+        }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 600px) {
+            #resultBox p {
+                font-size: 18px;
+                padding: 0 10px;
+            }
+
+            #resultBox img {
+                width: 80px;
+                margin: 10px;
+            }
+
+            #resultBox div {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -127,9 +148,11 @@
         </p>
 
         <div>
-            <img src="https://scontent.fsgn12-1.fna.fbcdn.net/v/t1.15752-9/597328228_855459686886761_1317463847313895270_n.jpg">
+            <img
+                src="https://scontent.fsgn12-1.fna.fbcdn.net/v/t1.15752-9/597328228_855459686886761_1317463847313895270_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=lzrm9w6lCJgQ7kNvwH950hM&_nc_oc=AdkuCD7zskjzEJa5vQdrKQH7MJ6fOR8cV984t22OGnZNDe3aI1uy6JHHI9iae439rZA&_nc_zt=23&_nc_ht=scontent.fsgn12-1.fna&oh=03_Q7cD4AHu6KL-wciEw-m6wCURgXkIan9LnjVmIuZQH6CYCfI7ow&oe=6962F11D">
             <img src="https://i.pinimg.com/originals/48/3e/77/483e776a383f72c75542ea2f3940ae37.gif">
-            <img src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.15752-9/597238274_1174921958157944_4333756564900251474_n.jpg">
+            <img
+                src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.15752-9/597238274_1174921958157944_4333756564900251474_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=Kzk6Oe7NpiQQ7kNvwFz5JTq&_nc_oc=AdmeckprTjCJVg-iKwZxGXvlrEH60dlQ7U7oRPT_11QttVg52y0azpagpVOCYKiAGkI&_nc_zt=23&_nc_ht=scontent.fsgn6-2.fna&oh=03_Q7cD4AGCJJ2_dDiA1wNiMMUakDKlm7SqUPj9fyI87zgdZKcPvA&oe=6962E1E1">
         </div>
     </div>
 
