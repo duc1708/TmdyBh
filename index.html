@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Heart Love</title>
+
     <style>
         body {
             margin: 0;
@@ -49,23 +50,37 @@
             0% {
                 transform: translateY(100vh) rotate(45deg);
             }
-
             100% {
                 transform: translateY(-10vh) rotate(45deg);
             }
         }
 
-        /* Ẩn title */
-        #title {
-            display: none;
-        }
-
-        /* Ẩn trái tim to */
+        /* BIG HEART BAN ĐẦU (HIỆN) */
         #bigHeart {
-            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(3);
+            width: 135px;
+            height: 109px;
+            background-image: url(https://i.pinimg.com/originals/48/3e/77/483e776a383f72c75542ea2f3940ae37.gif);
+            background-size: cover;
+            z-index: 2;
         }
 
-        /* Ẩn lời chúc + ảnh lúc đầu */
+        /* TITLE (HIỆN) */
+        #title {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            z-index: 3;
+        }
+
+        /* Lời chúc + ảnh (ẨN lúc đầu) */
         #resultBox {
             display: none;
             position: absolute;
@@ -75,7 +90,7 @@
             text-align: center;
             background: transparent;
             padding: 20px;
-            z-index: 3;
+            z-index: 4;
         }
 
         #resultBox p {
@@ -95,9 +110,13 @@
 
 <body>
 
-    <div id="title">Hãy nhấn 5 lần để mở bất ngờ</div>
+    <!-- TITLE (HIỆN lúc đầu) -->
+    <div id="title">Hãy nhấn 5 lần vào trái tim để xem điều bất ngờ</div>
+
+    <!-- TRÁI TIM BỰ (HIỆN lúc đầu) -->
     <div id="bigHeart"></div>
 
+    <!-- Lời chúc + 3 ảnh (ẨN lúc đầu) -->
     <div id="resultBox">
         <p>
             <em>
@@ -108,18 +127,14 @@
         </p>
 
         <div>
-            <img
-                src="https://scontent.fsgn12-1.fna.fbcdn.net/v/t1.15752-9/597328228_855459686886761_1317463847313895270_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=lzrm9w6lCJgQ7kNvwH950hM&_nc_oc=AdkuCD7zskjzEJa5vQdrKQH7MJ6fOR8cV984t22OGnZNDe3aI1uy6JHHI9iae439rZA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsgn12-1.fna&oh=03_Q7cD4AHyfTWISlg6RAgBo9kKKaQYkqscpGJ9lLUJK2IAQRV-2w&oe=6962F11D">
-
+            <img src="https://scontent.fsgn12-1.fna.fbcdn.net/v/t1.15752-9/597328228_855459686886761_1317463847313895270_n.jpg">
             <img src="https://i.pinimg.com/originals/48/3e/77/483e776a383f72c75542ea2f3940ae37.gif">
-
-            <img
-                src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.15752-9/597238274_1174921958157944_4333756564900251474_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=Kzk6Oe7NpiQQ7kNvwFz5JTq&_nc_oc=AdmeckprTjCJVg-iKwZxGXvlrEH60dlQ7U7oRPT_11QttVg52y0azpagpVOCYKiAGkI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsgn6-2.fna&oh=03_Q7cD4AEL1ooiVaDwgyyUdmV_fxdLg5QKf7ZnRs5u55KWD0_s9g&oe=6962E1E1">
+            <img src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.15752-9/597238274_1174921958157944_4333756564900251474_n.jpg">
         </div>
     </div>
 
     <script>
-        // Tạo hearts bay
+        // Tạo tim bay nền
         const colors = ["#ff4b4b", "#ff66c4", "#ffa500", "#00e5ff", "#39ff14", "#ff1493", "#9400ff"];
 
         for (let i = 0; i < 70; i++) {
@@ -136,12 +151,14 @@
             document.body.appendChild(h);
         }
 
-        // Click 5 lần mới hiện
+        // CLICK 5 LẦN MỚI HIỆN LỜI CHÚC + ẢNH
         let count = 0;
         document.body.addEventListener("click", () => {
             count++;
             if (count === 5) {
                 document.getElementById("resultBox").style.display = "block";
+                document.getElementById("bigHeart").style.display = "none";
+                document.getElementById("title").style.display = "none";
             }
         });
     </script>
