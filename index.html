@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Love</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--heartColor);
+            transform: rotate(45deg);
+            animation: float 8s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var\(--heartColor\);
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: -10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(45deg);
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(45deg);
+            }
+        }
+
+        /* Big center heart */
+        #bigHeart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(3);
+            width: 135px;
+            height: 109px;
+            /* background: red; */
+            transform-origin: center;
+            border-radius: 8px;
+            /* animation: pulse 1s infinite; */
+            z-index: 2;
+            background-image: url(https://i.pinimg.com/originals/48/3e/77/483e776….gif);
+            background-size: cover;
+        }
+
+        #bigHeart:before,
+        #bigHeart:after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var\(--heartColor\);
+            border-radius: 50%;
+        }
+
+        #bigHeart:before {
+            top: -30px;
+            left: 0;
+        }
+
+        #bigHeart:after {
+            left: -30px;
+            top: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(2.8);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(3.2);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(2.8);
+            }
+        }
+
+        /* Title */
+        #title {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Hidden content */
+        #resultBox {
+            display: none;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #resultBox img {
+            width: 120px;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title">Hãy nhấn 5 lần vào trái tim của tôi đang đập ❤️ sẽ có điều bất ngờ đó Nguyễn Gia Bảo Hân</div>
+
+    <div id="bigHeart"></div>
+
+    <div id="resultBox">
+        <p style="color:#fff; font-size:26px; margin-top:0;"><em> Anh không biết điều này có làm em vuii không, anh hi
+                vọng anh mang đến những năng lượng vui vẻ nhất cho em và anh cũng mong rằng anh với em cùng nhau đi xa
+                hơn nữa ♥♥♥</em></p>
+        <div>
+            <img
+                src="https://scontent.fsgn12-1.fna.fbcdn.net/v/t1.15752-9/597328228_855459686886761_1317463847313895270_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=lzrm9w6lCJgQ7kNvwH950hM&_nc_oc=AdkuCD7zskjzEJa5vQdrKQH7MJ6fOR8cV984t22OGnZNDe3aI1uy6JHHI9iae439rZA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsgn12-1.fna&oh=03_Q7cD4AHyfTWISlg6RAgBo9kKKaQYkqscpGJ9lLUJK2IAQRV-2w&oe=6962F11D" />
+            <img src="https://i.pinimg.com/originals/48/3e/77/483e776….gif" />
+            <img
+                src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.15752-9/597238274_1174921958157944_4333756564900251474_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=Kzk6Oe7NpiQQ7kNvwFz5JTq&_nc_oc=AdmeckprTjCJVg-iKwZxGXvlrEH60dlQ7U7oRPT_11QttVg52y0azpagpVOCYKiAGkI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsgn6-2.fna&oh=03_Q7cD4AEL1ooiVaDwgyyUdmV_fxdLg5QKf7ZnRs5u55KWD0_s9g&oe=6962E1E1" />
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        const colors = ["#ff4b4b", "#ff66c4", "#ffa500", "#00e5ff", "#39ff14", "#ff1493", "#9400ff"];
+
+        for (let i = 0; i < 70; i++) {
+            let h = document.createElement("div");
+            h.classList.add("heart");
+            let c = colors[Math.floor(Math.random() * colors.length)];
+            h.style.setProperty("--heartColor", c);
+
+            h.style.left = Math.random() * 100 + "vw";
+            h.style.animationDuration = 4 + Math.random() * 6 + "s";
+            h.style.opacity = 0.5 + Math.random() * 0.5;
+            h.style.transform = `scale(${0.4 + Math.random() * 1.4}) rotate(45deg)`;
+
+            document.body.appendChild(h);
+        }
+
+        // Click counting
+        let count = 0;
+        document.body.addEventListener("click", () => {
+            count++;
+            if (count === 5) {
+                document.getElementById("resultBox").style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
